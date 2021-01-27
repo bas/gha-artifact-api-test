@@ -54,12 +54,12 @@ jobs:
         run: |
           curl \
           -H "Accept: application/vnd.github.v3+json" \
-          -H "authorization: Bearer $INPUT_GITHUBPAT" \
+          -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/Akelius-Testing/hello-world-docker-action/actions/runs/$GITHUB_RUN_ID/artifacts
 
       - name: list artifacts from the running workflow 
         run: |
           curl \
           -H "Accept: application/vnd.github.v3+json" \
-          -H "authorization: Bearer $INPUT_GITHUBPAT" \
+          -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/Akelius-Testing/hello-world-docker-action/actions/runs/13333/artifacts
