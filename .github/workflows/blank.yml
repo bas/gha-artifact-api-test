@@ -68,4 +68,4 @@ jobs:
           curl \
           -H "Accept: application/vnd.github.v3+json" \
           -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/Akelius-Testing/hello-world-docker-action/actions/runs/13333/artifacts
+          https://api.github.com/repos/Akelius-Testing/hello-world-docker-action/actions/runs/515394048/artifacts
