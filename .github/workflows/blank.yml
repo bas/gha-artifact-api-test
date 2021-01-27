@@ -36,6 +36,11 @@ jobs:
         with:
           name: mytestartifact
           path: build-tag.txt
+      - name: Sleep a bit
+        run: |
+          echo "Going to sleep..."
+          sleep 120
+          echo "Waking up..."
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
