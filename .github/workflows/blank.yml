@@ -36,11 +36,6 @@ jobs:
         with:
           name: mytestartifact
           path: build-tag.txt
-      - name: Sleep a bit
-        run: |
-          echo "Going to sleep..."
-          sleep 120
-          echo "Waking up..."
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -63,8 +58,10 @@ jobs:
           curl \
           -H "Accept: application/vnd.github.v3+json" \
           -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/bas/gha-artifact-api-test/actions/runs/$GITHUB_RUN_ID/artifacts
-
+          https://api.github.com/repos/bas/gha-artifact-api-test/actions/runs/$RUN_ID/artifacts
+        env:
+          RUN_ID: $GITHUB_RUN_ID
+            
       - name: list artifacts from a previous pipeline
         run: |
           curl \
