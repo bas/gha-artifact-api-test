@@ -59,6 +59,7 @@ jobs:
 
       - name: list artifacts from the running workflow 
         run: |
+          echo $GITHUB_RUN_ID
           curl \
           -H "Accept: application/vnd.github.v3+json" \
           -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
@@ -69,7 +70,7 @@ jobs:
           curl \
           -H "Accept: application/vnd.github.v3+json" \
           -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/bas/gha-artifact-api-test/actions/runs/1777799256/artifacts
+          https://api.github.com/repos/bas/gha-artifact-api-test/actions/runs/1777893368/artifacts
 
       - name: Download artifact with github action
         uses: actions/download-artifact@v2
