@@ -46,10 +46,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       - name: show env
         run: env
 
@@ -63,9 +59,14 @@ jobs:
           -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/pakoAku/gha-artifact-api-test/actions/runs/$GITHUB_RUN_ID/artifacts
 
-      - name: list artifacts from the running workflow 
+      - name: list artifacts from a previous pipeline
         run: |
           curl \
           -H "Accept: application/vnd.github.v3+json" \
           -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/pakoAku/gha-artifact-api-test/actions/runs/515394048/artifacts
+
+      - name: Download artifact with github action
+        uses: actions/download-artifact@v2
+        with:
+          name: mytestartifact
