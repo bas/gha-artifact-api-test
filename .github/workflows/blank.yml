@@ -57,7 +57,7 @@ jobs:
          curl \
           -H "Accept: application/vnd.github.v3+json" \
           -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/bas/gha-artifact-api-test/actions/runs/${{GITHUB_RUN_ID}}/artifacts
+          https://api.github.com/repos/bas/gha-artifact-api-test/actions/runs/$GITHUB_RUN_ID/artifacts
             
       - name: list artifacts from a previous pipeline
         run: |
