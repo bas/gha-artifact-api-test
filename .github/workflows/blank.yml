@@ -50,6 +50,12 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
+      - name: show env
+        run: env
+
+      - name: show github_run_id
+        run: echo $GITHUB_RUN_ID
+
       - name: list artifacts from the running workflow 
         run: |
           curl \
